@@ -1,5 +1,5 @@
 # Board editing conventions
 
-- `board.txt` has three rows of three cells, separated by single spaces.
-- Keep the board itself initialized as dots only: `. . .` on each row.
-- Put instructions and explanations in `README.md`, not in `board.txt`.
+- `BOARD.txt` has three rows of three cells, separated by single spaces.
+- Initialize it with dots only: `. . .` on each row. During play, a move replaces one `.` with `X` or `O` and leaves every other cell and space unchanged.
+- Put instructions and explanations in `README.md`, not in `BOARD.txt`.
