@@ -4,13 +4,13 @@ A paired collaboration game. You and your partner play tic-tac-toe by editing, r
 
 ![Git Tic-Tac-Toe Turn Cycle](images/workflow.svg)
 
-## Create the shared pair repository
+## Choose the shared pair repository
 
-1. One partner selects **Use this template** and creates one public repository for the pair.
-2. In the new repository, invite the other partner as a collaborator.
-3. Each partner opens that same pair repository in their own GitHub Codespace. Both people use the browser-based VS Code editor.
+1. At the session, choose one participant's prepared public repository created from this template.
+2. Its owner invites the other partner as a collaborator.
+3. Each partner opens that same pair repository in a separate GitHub Codespace. Both people use the browser-based VS Code editor.
 
-The repository's `main` branch is the clean starting point. It contains `BOARD.txt`, initialized with an empty 3×3 board. Do not play on or change `main`; play each match on its own branch.
+The repository's `main` branch is the clean starting point. It contains `BOARD.txt`, initialized with an empty 3×3 board. Each row has three cells separated by one space; `.` means empty, and a move replaces one `.` with `X` or `O`. Do not play on or change `main`; play each match on its own branch.
 
 ## Start a match from `main`
 
@@ -36,7 +36,7 @@ Saving, staging, committing, and pushing are separate actions. Both partners sho
 
 ## Rehearse before the workshop
 
-For the advance setup check, open this starter repository directly in your own Codespace and ask Copilot chat, “What does this repository do?” Confirm the response, then leave the editor and delete that Codespace from the GitHub Codespaces dashboard. This rehearsal does not require creating a template copy or pair repository. Do not commit or push during the rehearsal.
+For the advance setup check, create your own public repository from this template, open that new repository in your Codespace, select **Ask** in Copilot Chat, and ask exactly: “What does this repository do?” Readiness passes when the response correctly describes this shared tic-tac-toe repository and explains that moves are recorded in `BOARD.txt`. No board edit is required. Keep the repository and Codespace for the workshop. At the session, your pair chooses one prepared repository, invites the partner, and opens it in each person's separate Codespace.
 
 ## If something goes wrong
 
