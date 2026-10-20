@@ -1,117 +1,47 @@
 # Git Tic-Tac-Toe Template
 
-A paired collaboration game. You and your partner play tic-tac-toe by committing and pushing moves to a shared GitHub repository.
+A paired collaboration game. You and your partner play tic-tac-toe by editing, reviewing, committing, and sharing moves in a GitHub repository.
 
 ![Git Tic-Tac-Toe Turn Cycle](images/workflow.svg)
 
----
+## Create the shared pair repository
 
-## Initial Setup
+1. One partner selects **Use this template** and creates one public repository for the pair.
+2. In the new repository, invite the other partner as a collaborator.
+3. Each partner opens that same pair repository in their own GitHub Codespace. Both people use the browser-based VS Code editor.
 
-Decide who is **Player X** (first mover) and who is **Player O** (collaborator).
+The repository's `main` branch is the clean starting point. It contains `BOARD.txt`, initialized with an empty 3×3 board. Do not play on or change `main`; play each match on its own branch.
 
-### Player X (Host / First Mover)
+## Start a match from `main`
 
-1. Click **Use this template** > **Create a new repository**.
-2. Go to **Settings** > **Collaborators** > **Add people**, and invite **Player O** by their GitHub handle.
-3. [Register your game](https://github.com/igorsdub/git-tic-tac-toe-workshop/issues/new?template=register-game.yml) to display your board on the workshop Game Wall.
-4. Clone the repository locally:
-   ```bash
-   git clone <your-repo-url>
-   cd <repo-folder>
-   ```
-5. You are ready to make Move 1!
+Create a new branch for every match, using the next two-digit number: `match-01`, `match-02`, and so on. Always create the branch from the clean `main` branch so each match begins with the initialized board.
 
-### Player O (Collaborator / Second Mover)
+In VS Code, use the branch name in the lower-left status bar to select `main`, then choose **Create new branch**. Enter the next match name, such as `match-01`, and choose `main` as its starting point if prompted. Confirm that the status bar shows the match branch before editing. The first player publishes the branch using **Source Control → Publish Branch**; the partner selects that branch and pulls it before taking a turn.
 
-1. Accept the invitation via email or [GitHub notifications](https://github.com/notifications).
-2. Clone the repository locally:
-   ```bash
-   git clone <repo-url>
-   cd <repo-folder>
-   ```
-3. Wait for Player X to push Move 1. Once they tell you *"Your turn!"*, begin your turn cycle.
+For another match, select `main` again and create the next numbered branch from it. Do not create a rematch from a previous match branch, merge match branches into `main`, or reset the board by hand.
 
----
+## Play and share a move
 
-## The Turn Cycle
+Both partners work on the same match branch in their own Codespaces. Take turns, and pull your partner's latest change before editing.
 
-Every turn follows these five steps in exact order. **Always pull before editing!**
+1. In **Source Control**, select **Pull**.
+2. Open `BOARD.txt`. Change one empty square to your mark (`X` or `O`), then save.
+3. Review the board's diff. Check that it contains only the legal move you intended.
+4. Stage `BOARD.txt` with the **+** control.
+5. Enter a clear commit message and select **Commit**.
+6. Select **Push** in Source Control. Tell your partner the move is ready.
+7. Your partner pulls, checks the board and commit, and takes the next turn.
 
-### 1. PULL the latest move
-```bash
-git pull origin main
-```
+Saving, staging, committing, and pushing are separate actions. Both partners should take turns editing and reviewing changes.
 
-### 2. EDIT `board.txt`
-Open `board.txt` in your text editor. Replace **one** empty square (`[ ]`) with your mark (`[X]` or `[O]`), then save the file.
+## Rehearse before the workshop
 
-### 3. STAGE your change
-Verify your diff and stage `board.txt`:
-```bash
-git status
-git diff
-git add board.txt
-```
+For the advance setup check, open this starter repository directly in your own Codespace and ask Copilot chat, “What does this repository do?” Confirm the response, then leave the editor and delete that Codespace from the GitHub Codespaces dashboard. This rehearsal does not require creating a template copy or pair repository. Do not commit or push during the rehearsal.
 
-### 4. COMMIT with a clear message
-```bash
-git commit -m "Move 1: X in center square"
-```
+## If something goes wrong
 
-### 5. PUSH to GitHub
-```bash
-git push origin main
-```
-Tell your partner: **"Your turn!"**
+- **The repository, branch, or board is missing:** Pause and ask the facilitator to check the repository and branch. Do not change `main` or create a replacement branch on your own.
+- **A push is rejected:** Ask your partner and facilitator to check the current branch and incoming changes. Pull only after saving and reviewing your own work, then inspect the updated board before continuing.
+- **A merge conflict appears naturally:** Keep the current work. Open the conflicted board in VS Code, review it with your partner, and agree on a legal board state. Remove conflict markers, review the complete diff, then stage, commit, and push the resolution. Ask the facilitator for help if you are unsure. Do not discard changes, reset the branch, or force-push.
 
----
-
-## Troubleshooting
-
-- **Push Rejected (`[rejected] main -> main (fetch first)`)**:
-  Your partner pushed before you fetched. Run:
-  ```bash
-  git pull origin main
-  git push origin main
-  ```
-
-- **Merge Conflict in `board.txt`**:
-  Open `board.txt`, resolve the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), save, and run:
-  ```bash
-  git add board.txt
-  git commit -m "Resolve merge conflict in board.txt"
-  git push origin main
-  ```
-
-- **Mistake or Typo**:
-  Never force push (`git push -f`). Simply fix `board.txt`, commit the fix, and push:
-  ```bash
-  git commit -am "Fix: correct square"
-  git push origin main
-  ```
-
----
-
-## Branch Rematch (Optional)
-
-Finished your match early? Play a rematch on a dedicated branch to keep your first game history intact on `main`:
-
-1. **Player X** creates and pushes the branch:
-   ```bash
-   git checkout -b rematch
-   git push -u origin rematch
-   ```
-
-2. **Player O** fetches and switches to the branch:
-   ```bash
-   git fetch origin
-   git checkout rematch
-   ```
-
-3. Reset `board.txt` back to empty squares (`[ ]`), commit, and push:
-   ```bash
-   git commit -am "Start Rematch Game 2"
-   git push origin rematch
-   ```
-4. Play your rematch on the `rematch` branch!
+There is no staged conflict exercise. Handle conflicts only if they arise during normal collaboration.
