@@ -38,10 +38,6 @@ Saving, staging, committing, and pushing are separate actions. Both partners sho
 
 For the advance setup check, create your own public repository from this template, open that new repository in your Codespace, select **Ask** in Copilot Chat, and ask exactly: “What does this repository do?” Readiness passes when the response correctly describes this shared tic-tac-toe repository and explains that moves are recorded in `BOARD.txt`. No board edit is required. Keep the repository and Codespace for the workshop. At the session, your pair chooses one prepared repository, invites the partner, and opens it in each person's separate Codespace.
 
-## If something goes wrong
+## If you need help
 
-- **The repository, branch, or board is missing:** Pause and ask the facilitator to check the repository and branch. Do not change `main` or create a replacement branch on your own.
-- **A push is rejected:** Ask your partner and facilitator to check the current branch and incoming changes. Pull only after saving and reviewing your own work, then inspect the updated board before continuing.
-- **A merge conflict appears naturally:** Keep the current work. Open the conflicted board in VS Code, review it with your partner, and agree on a legal board state. Remove conflict markers, review the complete diff, then stage, commit, and push the resolution. Ask the facilitator for help if you are unsure. Do not discard changes, reset the branch, or force-push.
-
-There is no staged conflict exercise. Handle conflicts only if they arise during normal collaboration.
+Ask your partner or facilitator to look at the board and Source Control with you.
