@@ -14,9 +14,9 @@ The repository's `main` branch is the clean starting point. It contains `BOARD.t
 
 ## Start a match from `main`
 
-Create a new branch for every match, using the next two-digit number: `match-01`, `match-02`, and so on. Always create the branch from the clean `main` branch so each match begins with the initialized board.
+The template ships with `match-01` already created from the clean `main` branch. In your pair repository, fetch and check out `origin/match-01` if it is available. If it was not included when the repository was created, create `match-01` from `main` and publish it. For later matches, create a new branch from the clean `main` branch using the next two-digit number, such as `match-02`.
 
-In VS Code, use the branch name in the lower-left status bar to select `main`, then choose **Create new branch**. Enter the next match name, such as `match-01`, and choose `main` as its starting point if prompted. Confirm that the status bar shows the match branch before editing. The first player publishes the branch using **Source Control → Publish Branch**. If the partner's Codespace was already open, first select **Source Control → Fetch** to refresh its branch list; then select `origin/match-01` (or the current match number), check it out, and pull before taking a turn.
+In VS Code, use the branch name in the lower-left status bar to select `main`, then choose **Create new branch**. Enter the next match name, such as `match-02`, and choose `main` as its starting point if prompted. Confirm that the status bar shows the match branch before editing. The first player publishes the branch using **Source Control → Publish Branch**. If the partner's Codespace was already open, first select **Source Control → Fetch** to refresh its branch list; then select `origin/match-01` (or the current match number), check it out, and pull before taking a turn.
 
 For another match, select `main` again and create the next numbered branch from it. Do not create a rematch from a previous match branch, merge match branches into `main`, or reset the board by hand.
 
